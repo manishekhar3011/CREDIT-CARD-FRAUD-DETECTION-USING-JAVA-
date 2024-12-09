@@ -1,0 +1,20 @@
+document.getElementById('analyzeButton').addEventListener('click', () => {
+    const transactionId = document.getElementById('transactionId').value;
+    const amount = document.getElementById('amount').value;
+    const location = document.getElementById('location').value;
+
+    if (!transactionId || !amount || !location) {
+        alert("Please fill in all fields!");
+        return;
+    }
+
+    // Simulate fraud detection logic (this would usually involve a backend API call)
+    const isFraud = Math.random() > 0.5; // Randomized for example purposes
+
+    const resultDiv = document.getElementById('result');
+    resultDiv.textContent = isFraud
+        ? `🚨 Fraud Detected! (Transaction ID: ${transactionId})`
+        : `✅ No Fraud Detected. (Transaction ID: ${transactionId})`;
+
+    resultDiv.style.color = isFraud ? 'red' : 'green';
+});
